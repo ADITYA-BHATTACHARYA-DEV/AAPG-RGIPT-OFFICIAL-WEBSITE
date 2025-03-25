@@ -1,5 +1,7 @@
-import type React from "react"
-import ProfileCards from "../components/ProfileCards"
+import ProfileCards from "@/app/components/ProfileCards";
+import type React from "react";
+
+
 
 const Team: React.FC = () => {
   return (

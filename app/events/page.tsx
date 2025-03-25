@@ -1,8 +1,9 @@
 "use client";
+import ImageDisplay from "@/app/components/ImageDisplay";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import type React from "react";
-import ImageDisplay from "../components/ImageDisplay";
+
 
 const Events: React.FC = () => {
   const events = [

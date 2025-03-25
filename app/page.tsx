@@ -1,103 +1,125 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { motion } from 'framer-motion';
+import { Award, Book, Globe, NewspaperIcon, Trophy, Users } from 'lucide-react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+const Home = () => {
+  const content = {
+    hero: {
+      title: 'AAPG RGIPT Student Chapter',
+      subtitle: 'Rajiv Gandhi Institute of Petroleum Technology',
+      description:
+        'Empowering the next generation of petroleum geoscientists through innovation, education, and collaboration.',
+    },
+    heroImages: [
+      './aapg field.jpg',
+      '/orientation 4.jpg',
+      '/workshop.jpg',
+    ],
+    features: [
+      { icon: <Globe className="w-8 h-8 text-blue-600 animate-pulse" />, title: 'Global Network', description: 'Connect with petroleum professionals and students worldwide' },
+      { icon: <Users className="w-8 h-8 text-blue-600 animate-pulse" />, title: 'Professional Development', description: 'Access to workshops, conferences, and technical sessions' },
+      { icon: <Book className="w-8 h-8 text-blue-600 animate-pulse" />, title: 'Research Excellence', description: 'Opportunities to showcase research and gain industry insights' },
+    ],
+    highlights: [
+      { icon: <Trophy className="w-8 h-8 text-yellow-500" />, title: 'Outstanding Student Chapter Award', description: 'Recognized for excellence in geological education and research initiatives', date: '2024' },
+      { icon: <Award className="w-8 h-8 text-green-500" />, title: 'Webinars', description: '10+ webinars featuring expert industrial insights.', date: '2023-2024' },
+      { icon: <NewspaperIcon className="w-8 h-8 text-purple-500" />, title: 'Industry Collaborations', description: 'New partnerships established with leading petroleum companies', date: 'Ongoing' },
+    ],
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <motion.section
+        className="relative overflow-hidden bg-white py-20"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <motion.h1 className="text-5xl font-bold text-blue-900 mb-4" initial={{ y: -20 }} animate={{ y: 0 }} transition={{ delay: 0.3 }}>{content.hero.title}</motion.h1>
+          <motion.h2 className="text-2xl text-blue-700 mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>{content.hero.subtitle}</motion.h2>
+          <motion.p className="text-xl text-blue-600 mx-auto max-w-3xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>{content.hero.description}</motion.p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="max-w-5xl mx-auto mt-12 px-4">
+          <Carousel
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop
+            autoPlay
+            interval={4000}
+            transitionTime={700}
+            swipeable
+            emulateTouch
+            dynamicHeight
+          >
+            {content.heroImages.map((src, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+                <img
+                  src={src}
+                  alt={`AAPG Event ${idx + 1}`}
+                  className="rounded-2xl shadow-xl object-cover w-full h-96"
+                />
+              </motion.div>
+            ))}
+          </Carousel>
+        </div>
+      </motion.section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {content.features.map((feature, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.08 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 rounded-xl shadow p-6 cursor-pointer"
+            >
+              <div className="mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Latest News & Highlights</h2>
+          <Carousel
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop
+            autoPlay
+            interval={4000}
+            transitionTime={700}
+          >
+            {content.highlights.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="bg-white border-t-4 border-blue-500 rounded-xl shadow p-8 mx-4 text-center"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex justify-center mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-600 mb-4">{item.description}</p>
+                <span className="text-sm text-blue-600 font-medium block mb-4">{item.date}</span>
+              </motion.div>
+            ))}
+          </Carousel>
+        </div>
+      </section>
+    </main>
   );
-}
+};
+
+export default Home;

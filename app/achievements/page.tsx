@@ -6,6 +6,8 @@ import { Calendar, Trophy } from "lucide-react";
 import React from "react";
 import ImageDisplay from "../components/ImageDisplay";
 
+
+
 const Achievements: React.FC = () => {
   const achievements = [
     {
